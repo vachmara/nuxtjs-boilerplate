@@ -6,8 +6,11 @@ export default defineEventHandler(async (event) => {
   if (!event.context.user) {
     return;
   }
-  const { data } = await client.from("account").select("*").eq("id", event.context.user.id).single();
+  // Select all the users only if the user is an admin
+  const { data } = await client.from("account").select("*").eq("user_id", event.context.user.id).single();
+
   if (data) {
+    // @ts-ignore
     event.context.user.admin = data.admin;
   }
 });

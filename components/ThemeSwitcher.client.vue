@@ -1,20 +1,13 @@
 <script setup lang="ts">
-const theme = useLocalStorage("theme", "dark");
+import useTheme from '@/composables/useTheme';
 
-const setTheme = (newTheme) => {
-  theme.value = newTheme;
-  document.documentElement.setAttribute("data-theme", newTheme);
-};
-
-const toggleTheme = () => {
-  theme.value === "dark" ? setTheme("light") : setTheme("dark");
-};
+const { theme, toggleTheme } = useTheme();
 </script>
 
 <template>
   <div class="flex cursor-pointer" @click="toggleTheme">
     <Icon
-      v-if="theme === 'light'"
+      v-if="theme === 'dark'"
       name="grommet-icons:sun"
       size="1.5em"
       class="text-primary"

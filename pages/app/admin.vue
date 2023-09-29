@@ -5,6 +5,7 @@ definePageMeta({
   description: "Admin",
 });
 
+// @ts-ignore
 const { data, pending } = await useLazyFetch("/api/user/listUsers", {
   method: "GET",
 });

@@ -2,7 +2,6 @@
 
 <template>
   <div>
-    <CommandConsole />
     <Navbar />
     <slot />
   </div>

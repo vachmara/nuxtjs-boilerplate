@@ -1,7 +1,8 @@
 import en from "./locales/en.json";
 import fr from "./locales/fr.json";
 
-export default defineNuxtConfig({
+
+const config = {
   app: {
     pageTransition: {
       name: "fade",
@@ -52,4 +53,6 @@ export default defineNuxtConfig({
   image: {
     dir: "assets/media"
   }
-});
+}
+
+export default defineNuxtConfig(config);
